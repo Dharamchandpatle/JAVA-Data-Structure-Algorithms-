@@ -1,5 +1,5 @@
 //Take a number as input and print the multiplication table for it.
-package Assignment1;
+package Assignment;
 
 import java.util.Scanner;
 
