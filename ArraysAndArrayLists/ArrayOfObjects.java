@@ -19,7 +19,7 @@ public class ArrayOfObjects {
         
 
         // for(String strr : str){
-        //     // System.out.print(strr+" ");
+        //      System.out.print(strr+" ");
         //     System.out.print(Arrays.toString(strr));
         // }
 
