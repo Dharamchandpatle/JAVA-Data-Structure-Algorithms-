@@ -1,5 +1,6 @@
 package Recursion;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class FindAllIndex {
@@ -30,6 +31,29 @@ public class FindAllIndex {
         // Recursive work 
        return findAllIndices(arr, target, n, idx+1);
     }
+
+
+    //Using ArrayList 
+    static ArrayList<Integer> allIndices(int []arr , int target , int n , int idx){
+        ArrayList<Integer> ans = new ArrayList<>() ;
+
+        // Basecase 
+        if(idx >= n){
+            return ans ;
+        }
+
+        // Self work 
+        if(arr[idx] == target){
+            ans.add(idx);
+        }
+        //Recusive workk
+        ArrayList<Integer> smallAns = allIndices(arr, target, n, idx+1);
+        ans.addAll(smallAns);
+        return ans;
+
+
+    }
+
     public static void main(String[] args) {
         int [] arr = {8,3,8,8,4};
         int target = 8 ;
@@ -37,7 +61,10 @@ public class FindAllIndex {
         // int []ans = findIndex(arr, target); 
         // System.out.println(Arrays.toString(ans));
 
-        System.out.println(findAllIndices(arr, target, n, 0));
+        // System.out.println(findAllIndices(arr, target, n, 0));
+
+        ArrayList<Integer> ans = allIndices(arr, target, n, 0);
+        System.out.println(ans);
     }
 
 }
