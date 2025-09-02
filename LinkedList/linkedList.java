@@ -15,11 +15,12 @@ public class linkedList {
 
     public static Node head;
     public static Node tail;
+    public static int size ;
 
     // add in tail new Node
     public  void addFirst(int data) {
         Node newNode = new Node(data);
-
+        size++;
         if (head == null) {
             head = tail = newNode;
             return;
@@ -32,6 +33,7 @@ public class linkedList {
     // add in tail new Node
     public  void addLast(int data) {
         Node newNode = new Node(data);
+        size++ ;
         if (head == null) {
             head = tail = newNode;
             return;
@@ -52,6 +54,7 @@ public class linkedList {
     // add node in middle ...
     public void addMiddle(int idx , int data){
         Node newNode = new Node(data);
+        size++;
         Node temp = head ; 
         int i = 0 ;
 
@@ -68,21 +71,16 @@ public class linkedList {
         linkedList ll = new linkedList();
      
         ll.addFirst(1);
-        ll.printLL();
         ll.addFirst(2);
-        ll.printLL();
         ll.addFirst(3);
-        ll.printLL();
         ll.addFirst(4);
-        ll.printLL();
 
         ll.addLast(5);
-        ll.printLL();
         ll.addLast(7);
-        ll.printLL();
-        
+
         ll.addMiddle(3,11);
         ll.printLL();
+        System.out.println(ll.size);
 
     }
 }
