@@ -2,7 +2,7 @@ import java.util.LinkedList;
 
 import org.w3c.dom.Node;
 
-public class linkedList {
+public class linkedListcA {
     public class Node {
         int data;
         Node next;
@@ -66,9 +66,66 @@ public class linkedList {
         newNode.next = temp.next ;
         temp.next = newNode;
     }
-    
+    public int removeFirst(){
+    // size =0 
+    if(size ==0){
+        System.out.println("LL is empty");
+        return Integer.MIN_VALUE; 
+    }
+
+    if(size == 1){
+        int val = head.data ;
+        head = tail = null;
+        size = 0;
+    }
+
+    int val = head.data ;
+    head = head.next ;
+    size--;
+    return val ;
+}
+// remove from last 
+public int removeLast(){
+    if(size == 0 ){
+        System.out.println("ll is empty");
+        return Integer.MIN_VALUE ;
+    }else if(size == 1 ){
+        int val = head.data ;
+        head = tail = null ;
+        size = 0 ;
+        return val ;
+    }
+
+    // prev ; i = size -2 
+  Node prev = head ;
+  for(int i = 0 ; i<size -2 ; i++){
+    prev = prev.next ;
+  }
+
+  int val = prev.next.data ;
+  prev.next = null ;
+  size--;
+  return val ;
+}
+
+// Iterative search in linkedlist 
+public int searchKey(int key ){
+    int i = 0 ; 
+    Node temp = head ;
+
+    while(temp != null ){
+        if(temp.data == key){
+            return i ;
+        }
+        temp = temp.next ;
+        i++;   
+     }
+     return -1 ;
+}
+
+
     public static void main(String aa[]) {
-        linkedList ll = new linkedList();
+        linkedListcA ll = new linkedListcA();
      
         ll.addFirst(1);
         ll.addFirst(2);
@@ -80,6 +137,10 @@ public class linkedList {
 
         ll.addMiddle(3,11);
         ll.printLL();
+
+        ll.removeFirst();
+        ll.printLL();
+
         System.out.println(ll.size);
 
     }
